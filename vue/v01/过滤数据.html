@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.red{
+			color: red;
+		}
+		.blue {
+			background: blue;
+		}
+	</style>
+	<script src='../js/vue.js'></script>
+	<script>
+		window.onload=function () {
+			/* body... */
+			new Vue({
+				el:'.box',     // 选择器
+				data:{
+
+				}
+			});   
+		}
+
+	</script>
+</head>
+<body>
+	<div class="box">
+		{{'welcome'|uppercase}}
+		<br />
+		{{'welcome'|lowercase}}
+		<br />
+		{{'welcome'|capitalize}}
+		<br>
+		{{'WELOCOME'|lowercase|capitalize}}
+		<br>
+		{{12|currency '¥'}}
+	</div>
+</body>
+</html>

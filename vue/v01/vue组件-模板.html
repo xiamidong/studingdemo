@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='../js/vue.js'></script>
+	<script>
+		window.onload=function () {
+			/* body... */
+			new Vue({
+				el:'#box',     // 选择器
+                data:{
+					checked:'ccc',
+					a:"man",
+					b:"female",
+					options:[{
+						name:'张三'
+					}]
+                },
+				methods:{
+					handleChange:function(){
+						alert('change');
+					},
+                    change(){
+                        this.a='female';
+                    }
+				},
+                components:{
+                    'my-com':{
+                        data(){
+                            return {
+                                fruit:['apple','box']
+                            }
+                        },
+                        methods:{
+                            change(){
+                                this.fruit=['female'];
+                            }
+                        },
+                        template:"#aaa"
+                    }
+                },
+			});   
+		}
+
+	</script>
+</head>
+<body>
+	<div id="box">
+        <my-com></my-com>
+        <template id="aaa">
+            <h3>标题</h3>
+            <ul>
+                <li v-for="item in fruit">{{item}}</li>
+            </ul>
+        </template>
+	</div>
+</body>
+</html>

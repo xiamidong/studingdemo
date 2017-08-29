@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='../js/vue.js'></script>
+	<script>
+		window.onload=function () {
+			/* body... */
+			new Vue({
+				el:'.box',     // 选择器
+				data:{
+					msg:'welcome vue',
+					arr:['apple','pair','banana']
+				},
+				methods:{
+					show:function(ev){
+						ev.cancelable=true;
+						alert(ev.clientX);
+					},
+					show2:function(){
+						alert(2);					}
+				}
+			});   
+		}
+
+	</script>
+</head>
+<body>
+	<div class="box">
+	   	<div @click="show2()">
+			<input type="button" value="按钮" @click="show($event)">
+	    </div>
+	</div>
+</body>
+</html>

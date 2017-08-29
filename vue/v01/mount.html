@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.red{
+			color: red;
+		}
+		.blue {
+			background: blue;
+		}
+	</style>
+	<script src='../js/vue.js'></script>
+	<script>
+		window.onload=function(){
+           var vm=new Vue({
+                data:{
+                    a:1,
+                    b:2
+                },
+                computed:{
+                    b:function(){
+                        return this.a+2;
+                    }
+                }
+            });
+            document.onclick=function(){
+                vm.a=3;
+            }
+            vm.$mount('.box');
+
+        }
+	</script>
+</head>
+<body>
+	<div class="box">
+        <span v-text="a"></span>
+        <br />
+        {{b}}
+	</div>
+</body>
+</html>

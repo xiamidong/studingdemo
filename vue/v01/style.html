@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.red{
+			color: red;
+		}
+		.blue {
+			background: blue;
+		}
+	</style>
+	<script src='../js/vue.js'></script>
+	<script>
+		window.onload=function () {
+			/* body... */
+			new Vue({
+				el:'.box',     // 选择器
+				data:{
+					red:{color:'red'},
+					blue:{backgroundColor:'blue'},
+					json:{
+						color:'red',
+						backgroundColor:'blue'
+					}
+				},
+				methods:{
+					show:function(ev){
+						// ev.preventDefault();
+						alert(ev.clientX);
+					}
+				}
+			});   
+		}
+
+	</script>
+</head>
+<body>
+	<div class="box">
+		<strong :style="json">blue</strong>
+	</div>
+</body>
+</html>

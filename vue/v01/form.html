@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='../js/vue.js'></script>
+	<script>
+		window.onload=function () {
+			/* body... */
+			new Vue({
+				el:'.box',     // 选择器
+                data:{
+					checked:'ccc',
+					a:"man",
+					b:"female",
+					options:[{
+						name:'张三'
+					}]
+                },
+				methods:{
+					handleChange:function(){
+						alert('change');
+					}
+				}
+			});   
+		}
+
+	</script>
+</head>
+<body>
+	<div class="box">
+		<input type="radio" id="a" value="a" v-model="checked" />
+		<label for="a">a</label>
+		<input type="radio" id="b" value="b" v-model="checked" />
+		<label for="b">b</label>
+		<br>
+		{{checked}}
+		<select v-model="selected" multiple>
+			<option value="A" selected="">A</option>
+			<option value="B">B</option>
+			<option value="C">C</option>
+		</select>
+		{{selected}}
+		<input id="example" type="radio" value='example' v-model="selected">
+		<label for="example">example</label>
+		<br />
+		{{selected}}
+		<!--动态选择-->
+		<input id="man" type="radio" value="男" v-model="toggle">
+		<label for="man">男</label>
+		<input id="female" type="radio" v-model="toggle" value="女">
+		<label for="female">女</label>
+		<br>
+		{{toggle}}
+		<input type="checkbox" v-model="checkbox" :true-value="a" :false-value="b">a
+		<br>
+		{{checkbox}}
+		<input type="text" v-model="nomal" @change="handleChange()"><br>
+		{{nomal}}<br>
+		<input type="text" v-model="lazy" @change="handleChange()" lazy><br>
+		{{lazy}}<br>
+		<input type="text" v-model="age" number>
+		{{age}}
+	</div>
+</body>
+</html>
